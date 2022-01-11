@@ -22,7 +22,7 @@ async function listProjects() {
     //console.log(projectdata['fields']['assignee']['displayName']);
     //console.log(projectsArray[0]['name']);
     projectsArray.forEach(element => {
-        console.log(element['name']);     
+      //  console.log(element['name']);     
         projectName.push(element['name']);
     });
     return projectName;
