@@ -67,13 +67,38 @@ async function listProjectSprintDetails(projectKey) {
 }
 
 
+async function AssigneeOpenIssues(assigneeName) {
+    var jira = new JiraApi({
+        protocol: process.env.PROTOCOL,
+        host: process.env.HOST,
+        username: process.env.EMAIL_ID,
+        password: process.env.PASSWORD,
+        apiVersion: 2
+
+    });
+    let projectsDetails=await jira.getUsersIssues(assigneeName,1);
+    console.log(projectsDetails);
+    // let projectsDetailsVersions=projectsDetails['versions'];
+    // let projectSprint= new Array();
+    
+    // projectsDetailsVersions.forEach(element => {
+        
+    //      let obj= {'Name':  element['name'],'Description':element['description'],'StartDate':element['startDate'],'releaseDate':element['releaseDate']}
+    //      projectSprint.push(obj);
+    //  });
+     return projectsDetails;
+}
+
+
+
 
 
 
 module.exports={
     listProjects,
     listProjectDetails,
-    listProjectSprintDetails
+    listProjectSprintDetails,
+    AssigneeOpenIssues
 }
 
 

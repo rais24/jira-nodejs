@@ -1,5 +1,6 @@
 var JIRA = require("../jira-project-list");
 var chai = require("chai");
+
 var expect = chai.expect;
 
 describe("Test suit", function () {

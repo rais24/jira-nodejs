@@ -26,4 +26,8 @@ app.get("/getprojectsprintdetails", async(req, res) => {
     res.json(await jiramethod.listProjectSprintDetails(req.query.projectkey));
 });
 
+app.get("/getassigneeopenissues", async(req, res) => {
+    req.query.assigneename;
+    res.json(await jiramethod.AssigneeOpenIssues(JSON.stringify(decodeURI(req.query.assigneename))));
+});
 app.listen(5000, () => console.log("listening on port 5000"));
